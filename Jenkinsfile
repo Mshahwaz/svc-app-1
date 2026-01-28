@@ -11,5 +11,11 @@ pipeline {
                 sh 'docker build -t "$REPO:$TAG" . '
             }
         }
+        stage('Deploy'){
+            steps{
+                sh ' docker rm $REPO:$TAG || true '
+                sh ' docker run -d -p $PORT:$PORT $REPO:$TAG '
+            }
+        }
     }
 }
