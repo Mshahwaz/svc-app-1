@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         REPO = "app1-flask"
-        TAG = "${BUILD_NO}"
+        TAG = "${BUILD_NUMBER}"
         PORT = "5000"
     }
     stages{
